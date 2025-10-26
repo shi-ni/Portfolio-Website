@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolio';
 
 export function Header() {
@@ -23,12 +24,17 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 w-full shadow-md">
+    <motion.header 
+      className="bg-secondary-900/95 backdrop-blur-md fixed top-0 left-0 right-0 z-50 w-full shadow-md border-b border-secondary-700"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
         <a
           href="#home"
           onClick={(e) => smoothScroll(e, 'home')}
-          className="text-2xl font-bold text-amber-500 hover:text-amber-400 transition-colors"
+          className="text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors"
         >
           {portfolioData.name}
         </a>
@@ -37,7 +43,7 @@ export function Header() {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-700 focus:outline-none"
+            className="text-secondary-100 focus:outline-none"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -50,7 +56,7 @@ export function Header() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={(e) => smoothScroll(e, link)}
-              className="text-gray-600 hover:text-amber-500 transition-colors font-medium"
+              className="text-secondary-300 hover:text-primary-400 transition-colors font-medium"
             >
               {link}
             </a>
@@ -70,13 +76,13 @@ export function Header() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={(e) => smoothScroll(e, link)}
-              className="block py-2 text-gray-600 hover:text-amber-500 transition-colors font-medium"
+              className="block py-2 text-secondary-300 hover:text-primary-400 transition-colors font-medium"
             >
               {link}
             </a>
           ))}
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
