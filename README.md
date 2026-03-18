@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with Vite, React, and Tailwind CSS.
 
 ![Portfolio Preview](./preview-2.png)
 
-🚀 **Live Demo:** [View Portfolio](https://68fe559f83e2c60008149e56--hasanzubair-portfolio.netlify.app/)
+🚀 **Live Demo:** [View Portfolio](https://hasanzubair-portfolio.netlify.app/)
 
 ## Project Structure
 
